@@ -1,0 +1,10 @@
+#!/bin/bash
+
+printf "Usuwam nagłowek z pliku $1 \n"
+#sed -n '/^<data/{n; b ploop}; b; :ploop /<\/data/q; p; n; b ploop' < work_unit.sah > work_unit.data
+sed -n '/^<data/{n; b ploop}; b; :ploop /<\/data/q; p; n; b ploop' < $1 > work_unit.data
+printf "Gotowe \n\n"
+
+printf "Przywołuję program dekoder \n"
+./dekoder4 > wynik.txt
+printf "Gotowe!\nOdkodowane dane znajdują się w pliku wynik.txt\n\n"

@@ -1,0 +1,7 @@
+g++ seti.cpp -o seti -Wall -pedantic
+
+sed -n '/^<data/{n; b ploop}; b; :ploop /<\/data/q; p; n; b ploop' < work_unit.sah > work_unit.data
+
+
+ZMIENNA=$( cat work_unit_1.sah | grep wu_bits_per_sample | cut -c  25-25)
+
